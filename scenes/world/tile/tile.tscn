@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://bb0rgu6tkmaqg"]
+
+[ext_resource type="Script" uid="uid://cexlb5qx6wef0" path="res://common/interaction_component.gd" id="1_rw6y7"]
+[ext_resource type="Material" uid="uid://kxn5tgamjpdu" path="res://resources/materials/hover_outline.tres" id="2_jeoex"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s827a"]
+albedo_color = Color(0.360784, 1, 0.266667, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rw6y7"]
+material = SubResource("StandardMaterial3D_s827a")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jeoex"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sa5u7"]
+size = Vector3(1.10358, 1, 1.08783)
+
+[node name="Tile" type="StaticBody3D"]
+
+[node name="TileMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_rw6y7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_jeoex")
+
+[node name="InteractionComponent" type="Area3D" parent="." node_paths=PackedStringArray("mesh", "collision_body")]
+script = ExtResource("1_rw6y7")
+mesh = NodePath("../TileMesh")
+outline_material = ExtResource("2_jeoex")
+collision_body = NodePath(".")
+metadata/_custom_type_script = "uid://cexlb5qx6wef0"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionComponent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0233459, 0, 0.01651)
+shape = SubResource("BoxShape3D_sa5u7")
+debug_color = Color(0.904149, 0.10288, 0.703158, 0.42)

@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://djo8yo80nvylc"]
+
+[ext_resource type="PackedScene" uid="uid://bb0rgu6tkmaqg" path="res://scenes/world/tile/tile.tscn" id="1_o5qli"]
+
+[node name="Main" type="Node"]
+
+[node name="Grid" type="Node3D" parent="."]
+
+[node name="Tile" parent="Grid" instance=ExtResource("1_o5qli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.50044)
+
+[node name="Tile2" parent="Grid" instance=ExtResource("1_o5qli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.50561)
+
+[node name="Tile3" parent="Grid" instance=ExtResource("1_o5qli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.983559, 0, -0.50561)
+
+[node name="Tile4" parent="Grid" instance=ExtResource("1_o5qli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.983559, 0, 0.499231)

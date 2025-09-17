@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://8180yui1vh6n"]
+
+[ext_resource type="Shader" uid="uid://dka0diqob7t4d" path="res://common/outline.gdshader" id="1_oanuw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wloch"]
+transparency = 1
+albedo_color = Color(0.172549, 1, 1, 0.419608)
+
+[resource]
+render_priority = 0
+next_pass = SubResource("StandardMaterial3D_wloch")
+shader = ExtResource("1_oanuw")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 2.0
