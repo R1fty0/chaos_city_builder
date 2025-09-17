@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bb0rgu6tkmaqg"]
+[gd_scene load_steps=11 format=3 uid="uid://bb0rgu6tkmaqg"]
 
 [ext_resource type="Script" uid="uid://cexlb5qx6wef0" path="res://common/interaction_component.gd" id="1_rw6y7"]
+[ext_resource type="Script" uid="uid://pg8ojl2qourm" path="res://scenes/world/tile/tile.gd" id="1_wnjee"]
 [ext_resource type="Material" uid="uid://kxn5tgamjpdu" path="res://resources/materials/hover_outline.tres" id="2_jeoex"]
+[ext_resource type="Material" uid="uid://8180yui1vh6n" path="res://resources/materials/selected_outline.tres" id="3_sa5u7"]
+[ext_resource type="Script" uid="uid://c4ok3vl22jx" path="res://scripts/adjacent_tile_checker.gd" id="5_gqpp7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s827a"]
 albedo_color = Color(0.360784, 1, 0.266667, 1)
@@ -12,9 +15,14 @@ material = SubResource("StandardMaterial3D_s827a")
 [sub_resource type="BoxShape3D" id="BoxShape3D_jeoex"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sa5u7"]
-size = Vector3(1.10358, 1, 1.08783)
+size = Vector3(1.10358, 1.01611, 1.08783)
 
-[node name="Tile" type="StaticBody3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_wnjee"]
+
+[node name="Tile" type="StaticBody3D" node_paths=PackedStringArray("adj_tile_checker", "interaction_component")]
+script = ExtResource("1_wnjee")
+adj_tile_checker = NodePath("AdjacentTileChecker")
+interaction_component = NodePath("InteractionComponent")
 
 [node name="TileMesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_rw6y7")
@@ -26,10 +34,46 @@ shape = SubResource("BoxShape3D_jeoex")
 script = ExtResource("1_rw6y7")
 mesh = NodePath("../TileMesh")
 outline_material = ExtResource("2_jeoex")
+selection_material = ExtResource("3_sa5u7")
 collision_body = NodePath(".")
 metadata/_custom_type_script = "uid://cexlb5qx6wef0"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionComponent"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0233459, 0, 0.01651)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0233459, 0.00805664, 0.01651)
 shape = SubResource("BoxShape3D_sa5u7")
 debug_color = Color(0.904149, 0.10288, 0.703158, 0.42)
+
+[node name="AdjacentTileChecker" type="Node3D" parent="." node_paths=PackedStringArray("forward_tile", "left_tile", "right_tile", "back_tile")]
+script = ExtResource("5_gqpp7")
+forward_tile = NodePath("ForwardTile")
+left_tile = NodePath("LeftTile")
+right_tile = NodePath("RightTile")
+back_tile = NodePath("BackTile")
+
+[node name="ForwardTile" type="Area3D" parent="AdjacentTileChecker"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AdjacentTileChecker/ForwardTile"]
+shape = SubResource("BoxShape3D_wnjee")
+debug_color = Color(0, 0.6, 0.701961, 1)
+
+[node name="LeftTile" type="Area3D" parent="AdjacentTileChecker"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AdjacentTileChecker/LeftTile"]
+shape = SubResource("BoxShape3D_wnjee")
+debug_color = Color(0, 0.6, 0.701961, 1)
+
+[node name="RightTile" type="Area3D" parent="AdjacentTileChecker"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AdjacentTileChecker/RightTile"]
+shape = SubResource("BoxShape3D_wnjee")
+debug_color = Color(0, 0.6, 0.701961, 1)
+
+[node name="BackTile" type="Area3D" parent="AdjacentTileChecker"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AdjacentTileChecker/BackTile"]
+shape = SubResource("BoxShape3D_wnjee")
+debug_color = Color(0, 0.6, 0.701961, 1)

@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="chaos_city_builder"
+run/main_scene="uid://djo8yo80nvylc"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GridManager="*res://scripts/singletons/grid_manager.gd"
 
 [file_customization]
 
@@ -20,7 +25,8 @@ folder_colors={
 "res://assets/": "red",
 "res://common/": "orange",
 "res://resources/": "purple",
-"res://scenes/": "green"
+"res://scenes/": "green",
+"res://scripts/": "blue"
 }
 
 [input]
