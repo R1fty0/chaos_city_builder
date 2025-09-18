@@ -1,5 +1,5 @@
 extends Area3D
-class_name InteractionComponent
+class_name OutlineComponent
 
 # NOTE: All meshes that use this component require a weighted normals modifier in Blender. 
 # Credit: https://www.youtube.com/watch?v=CG0TMH8D8kY

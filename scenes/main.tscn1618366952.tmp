@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://djo8yo80nvylc"]
 
-[ext_resource type="Script" uid="uid://dbd8emx2fppsg" path="res://scripts/singletons/grid_manager.gd" id="1_0wfyh"]
+[ext_resource type="Script" uid="uid://dbd8emx2fppsg" path="res://scripts/managers/grid_manager.gd" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://bb0rgu6tkmaqg" path="res://prefabs/tile/tile.tscn" id="2_sugp2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5qli"]
@@ -28,6 +28,7 @@ shadow_enabled = true
 script = ExtResource("1_0wfyh")
 
 [node name="Tile" parent="GridManager" instance=ExtResource("2_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.50044)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.711439, -0.358233, 0.604586, 0, 0.860317, 0.50976, -0.702748, -0.362663, 0.612063, 2.62028, 2.56358, 1.98609)
+transform = Transform3D(0.711439, -0.358233, 0.604586, 0, 0.860317, 0.50976, -0.702748, -0.362663, 0.612063, 2.62028, 1.83224, 1.98609)

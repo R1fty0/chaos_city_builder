@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://8180yui1vh6n"]
 
-[ext_resource type="Shader" uid="uid://dka0diqob7t4d" path="res://common/outline.gdshader" id="1_oanuw"]
+[ext_resource type="Shader" uid="uid://dka0diqob7t4d" path="res://prefabs/outline_component/outline.gdshader" id="1_oanuw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wloch"]
 transparency = 1
