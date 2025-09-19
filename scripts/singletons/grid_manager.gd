@@ -3,7 +3,7 @@ extends Node3D
 # NOTE: This script assumes tiles are at a size of 1x1 metres, and that they are 
 # placed in 1 metre intervals
 
-const TILE_SCENE: PackedScene = preload("res://prefabs/tile/tile.tscn")
+const TILE_SCENE: PackedScene = preload("res://prefabs/common/tile/tile.tscn")
 ## Contains a list of tiles and their positions (X and Z)
 # Position: Tile
 var tile_positions: Array[Vector2i] = []
@@ -34,6 +34,7 @@ func add_new_tile_to_grid(existing_tile: Tile) -> void:
 	var right_pos = Vector2i(position.x - 1, position.y)
 	var forward_pos = Vector2i(position.x, position.y + 1)
 	var backward_pos = Vector2i(position.x, position.y - 1)
+	
 	# Populate a array with these positions. 
 	var positions = [
 		left_pos, 

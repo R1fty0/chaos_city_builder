@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://g7u38yrj6icj"]
+
+[ext_resource type="Script" uid="uid://cexlb5qx6wef0" path="res://prefabs/common/outline_component/outline_component.gd" id="1_1vrx4"]
+[ext_resource type="Script" uid="uid://spix5bucfmox" path="res://prefabs/common/building/building.gd" id="1_5qs6f"]
+
+[node name="Building" type="Node3D"]
+script = ExtResource("1_5qs6f")
+
+[node name="BuildingMesh" type="MeshInstance3D" parent="."]
+
+[node name="OutlineComponent" type="Area3D" parent="."]
+script = ExtResource("1_1vrx4")
+metadata/_custom_type_script = "uid://cexlb5qx6wef0"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OutlineComponent"]

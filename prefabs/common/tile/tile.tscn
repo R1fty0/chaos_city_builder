@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bb0rgu6tkmaqg"]
 
-[ext_resource type="Script" uid="uid://cexlb5qx6wef0" path="res://prefabs/outline_component/outline_component.gd" id="1_rw6y7"]
-[ext_resource type="Script" uid="uid://pg8ojl2qourm" path="res://prefabs/tile/tile.gd" id="1_wnjee"]
+[ext_resource type="Script" uid="uid://cexlb5qx6wef0" path="res://prefabs/common/outline_component/outline_component.gd" id="1_rw6y7"]
+[ext_resource type="Script" uid="uid://pg8ojl2qourm" path="res://prefabs/common/tile/tile.gd" id="1_wnjee"]
 [ext_resource type="Material" uid="uid://kxn5tgamjpdu" path="res://resources/materials/outlines/hover_outline.tres" id="2_jeoex"]
 [ext_resource type="Material" uid="uid://8180yui1vh6n" path="res://resources/materials/outlines/selected_outline.tres" id="3_sa5u7"]
 
@@ -18,7 +18,7 @@ size = Vector3(1.10358, 1.01611, 1.08783)
 
 [node name="Tile" type="StaticBody3D" node_paths=PackedStringArray("outline_component")]
 script = ExtResource("1_wnjee")
-outline_component = NodePath("InteractionComponent")
+outline_component = NodePath("OutlineComponent")
 
 [node name="TileMesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_rw6y7")
@@ -26,15 +26,17 @@ mesh = SubResource("BoxMesh_rw6y7")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_jeoex")
 
-[node name="InteractionComponent" type="Area3D" parent="." node_paths=PackedStringArray("mesh", "collision_body")]
+[node name="OutlineComponent" type="Area3D" parent="." node_paths=PackedStringArray("mesh")]
 script = ExtResource("1_rw6y7")
 mesh = NodePath("../TileMesh")
 outline_material = ExtResource("2_jeoex")
 selection_material = ExtResource("3_sa5u7")
-collision_body = NodePath(".")
 metadata/_custom_type_script = "uid://cexlb5qx6wef0"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionComponent"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OutlineComponent"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0233459, 0.00805664, 0.01651)
 shape = SubResource("BoxShape3D_sa5u7")
 debug_color = Color(0.904149, 0.10288, 0.703158, 0.42)
+
+[node name="BuildingSpawnPoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
