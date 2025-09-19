@@ -4,9 +4,11 @@ extends Node3D
 # placed in 1 metre intervals
 
 const TILE_SCENE: PackedScene = preload("res://prefabs/common/tile/tile.tscn")
-## Contains a list of tiles and their positions (X and Z)
-# Position: Tile
+
+## List of the positions of each tile.
 var tile_positions: Array[Vector2i] = []
+## List of all tiles.
+var tiles: Array[Tile] = []
 
 func _ready() -> void:
 	call_deferred("init_tiles")
@@ -14,18 +16,19 @@ func _ready() -> void:
 func init_tiles() -> void:
 	for child in get_children():
 		if child is Tile:
-			add_tile_position(child)
+			add_existing_tile(child)
 	
-func add_tile_position(tile: Tile) -> void:
+func add_existing_tile(tile: Tile) -> void:
 	var position = Vector2i(roundi(tile.global_position.x), roundi(tile.global_position.z))
 	if not tile_positions.has(position):
 		tile_positions.append(position)
+		tiles.append(tile)
 	
 func get_tile_position(tile: Tile) -> Vector2i:
 	var position = Vector2i(roundi(tile.global_position.x), roundi(tile.global_position.z))
 	return position
 	
-func add_new_tile_to_grid(existing_tile: Tile) -> void:
+func add_new_tile(existing_tile: Tile) -> void:
 	# Get position of existing tile 
 	var position = get_tile_position(existing_tile)
 	
@@ -58,4 +61,6 @@ func add_new_tile_to_grid(existing_tile: Tile) -> void:
 	var new_tile = TILE_SCENE.instantiate()
 	add_child(new_tile)
 	new_tile.position = Vector3(new_position.x, 0, new_position.y)
+	# Add new tile info to grid manager database
 	tile_positions.append(new_position)
+	tiles.append(new_tile)

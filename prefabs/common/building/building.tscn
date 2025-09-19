@@ -6,10 +6,10 @@
 [node name="Building" type="Node3D"]
 script = ExtResource("1_5qs6f")
 
-[node name="BuildingMesh" type="MeshInstance3D" parent="."]
-
 [node name="OutlineComponent" type="Area3D" parent="."]
 script = ExtResource("1_1vrx4")
 metadata/_custom_type_script = "uid://cexlb5qx6wef0"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OutlineComponent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00708461, 0.721131, 0.0204234)
+debug_color = Color(0.864969, 0.000585077, 0.863131, 0.42)

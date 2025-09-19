@@ -28,6 +28,7 @@ shape = SubResource("BoxShape3D_jeoex")
 
 [node name="OutlineComponent" type="Area3D" parent="." node_paths=PackedStringArray("mesh")]
 script = ExtResource("1_rw6y7")
+is_selectable = false
 mesh = NodePath("../TileMesh")
 outline_material = ExtResource("2_jeoex")
 selection_material = ExtResource("3_sa5u7")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://djo8yo80nvylc"]
+[gd_scene load_steps=7 format=3 uid="uid://djo8yo80nvylc"]
 
 [ext_resource type="Script" uid="uid://dbd8emx2fppsg" path="res://scripts/singletons/grid_manager.gd" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://bb0rgu6tkmaqg" path="res://prefabs/common/tile/tile.tscn" id="2_sugp2"]
+[ext_resource type="Script" uid="uid://g3exd5kro8n6" path="res://scripts/singletons/building_construction_manager.gd" id="3_sugp2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5qli"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -25,9 +26,13 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="GridManager" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 script = ExtResource("1_0wfyh")
 
 [node name="Tile" parent="GridManager" instance=ExtResource("2_sugp2")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.711439, -0.358233, 0.604586, 0, 0.860317, 0.50976, -0.702748, -0.362663, 0.612063, 2.62028, 2.56358, 1.98609)
+
+[node name="BuildingConstructionManager" type="Node3D" parent="."]
+script = ExtResource("3_sugp2")

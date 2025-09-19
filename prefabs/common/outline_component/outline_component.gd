@@ -1,13 +1,15 @@
 extends Area3D
 class_name OutlineComponent
 
-# NOTE: All meshes that use this component require a weighted normals modifier in Blender. 
+# NOTE: 
+# All meshes that use this component require a weighted normals modifier in Blender. 
+# This script assumes the selectable node is the parent of the node with this script.
 # Credit: https://www.youtube.com/watch?v=CG0TMH8D8kY
 
-signal selected
-signal unselected
+signal selected(node: Node)
+signal unselected(node: Node)
 
-@export_category("Outlines")
+@export var is_selectable: bool = true
 @export var mesh: MeshInstance3D
 @export var outline_material: Material
 @export var selection_material: Material
@@ -32,15 +34,15 @@ func _on_mouse_exited() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Unselect the object if the player clicks elsewhere. 
-	if event.is_action_pressed("select") and is_selected:
+	if is_selectable and event.is_action_pressed("select") and is_selected:
 		mesh.material_overlay = null
-		unselected.emit()
+		unselected.emit(get_parent())
 		is_selected = false
 
 func _on_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	# Apply selected outline
-	if event.is_action_pressed("select"):
+	if is_selectable and event.is_action_pressed("select"):
 		if not is_selected:
 			mesh.material_overlay = selection_material
 			is_selected = true
-			selected.emit()
+			selected.emit(get_parent())
