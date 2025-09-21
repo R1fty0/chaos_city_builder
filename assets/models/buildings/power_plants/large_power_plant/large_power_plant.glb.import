@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bcfkcwi72wsmp"
-path="res://.godot/imported/large_factory.glb-a7ae3a574e01a8da56058e0d467babeb.scn"
+uid="uid://r3wv1wm0iruk"
+path="res://.godot/imported/large_power_plant.glb-2b450b7d7c75cbf3ca4332f5e1b38c4f.scn"
 
 [deps]
 
-source_file="res://assets/models/buildings/factories/large_factory/large_factory.glb"
-dest_files=["res://.godot/imported/large_factory.glb-a7ae3a574e01a8da56058e0d467babeb.scn"]
+source_file="res://assets/models/buildings/power_plants/large_power_plant/large_power_plant.glb"
+dest_files=["res://.godot/imported/large_power_plant.glb-2b450b7d7c75cbf3ca4332f5e1b38c4f.scn"]
 
 [params]
 

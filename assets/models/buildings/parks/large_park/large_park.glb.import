@@ -3,20 +3,20 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bcfkcwi72wsmp"
-path="res://.godot/imported/large_factory.glb-a7ae3a574e01a8da56058e0d467babeb.scn"
+uid="uid://boapxa5tw0geh"
+path="res://.godot/imported/large_park.glb-9d0d1081dd1982ac40f511097ea73e6c.scn"
 
 [deps]
 
-source_file="res://assets/models/buildings/factories/large_factory/large_factory.glb"
-dest_files=["res://.godot/imported/large_factory.glb-a7ae3a574e01a8da56058e0d467babeb.scn"]
+source_file="res://assets/models/buildings/parks/large_park/large_park.glb"
+dest_files=["res://.godot/imported/large_park.glb-9d0d1081dd1982ac40f511097ea73e6c.scn"]
 
 [params]
 
 nodes/root_type=""
 nodes/root_name=""
 nodes/apply_root_scale=true
-nodes/root_scale=0.5
+nodes/root_scale=2.0
 nodes/import_as_skeleton_bones=false
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
