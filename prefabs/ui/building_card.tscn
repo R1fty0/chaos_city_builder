@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfuo46aa7it3m"]
+
+[ext_resource type="Theme" uid="uid://didsb1ebyuec2" path="res://resources/themes/building_card_theme.tres" id="1_k7cmb"]
+
+[node name="BuildingCard" type="PanelContainer"]
+theme = ExtResource("1_k7cmb")
+
+[node name="BuildingName" type="Label" parent="."]
+layout_mode = 2
+
+[node name="BuildingIcon" type="TextureRect" parent="."]
+layout_mode = 2

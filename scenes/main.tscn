@@ -36,3 +36,5 @@ transform = Transform3D(0.711439, -0.358233, 0.604586, 0, 0.860317, 0.50976, -0.
 
 [node name="BuildingConstructionManager" type="Node3D" parent="."]
 script = ExtResource("3_sugp2")
+
+[node name="InGameUI" type="CanvasLayer" parent="."]
